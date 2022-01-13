@@ -205,10 +205,20 @@ async def start(client, message):
             f_caption=f_caption
     if f_caption is None:
         f_caption = f"{files.file_name}"
+    buttons = [
+                    [
+                        InlineKeyboardButton('ᴄʟᴏsᴇ', callback_data="close_pages"),
+                        InlineKeyboardButton('sʜᴀʀᴇ', url="https://t.me/share/url?url=**😱%20സിനിമ%20ഭ്രാന്തൻ.²·⁰%20😱%0A%0Aഏത്%20അർധരാത്രി%20ചോദിച്ചാലും%20പടം%20കിട്ടും,%20ലോകത്തിലെ%20ഒട്ടുമിക്ക%20ഭാഷകളിലുമുള്ള%20സിനിമകളുടെ%20കളക്ഷൻ..%20❤️%0A%0A👇%20GROUP%20LINK%20👇%0A@CinemaBranthen%0A@CinemaBranthen%0A@CinemaBranthen**")
+                    ],
+                    [
+                        InlineKeyboardButton('💬 ᴅᴏᴡɴʟᴏᴀᴅ sᴜʙᴛɪᴛɪʟᴇ 💬', url="https://t.me/subtitle_dl_bot")
+                    ]
+                    ]
     await client.send_cached_media(
         chat_id=message.from_user.id,
         file_id=file_id,
         caption=f_caption,
+        reply_markup=InlineKeyboardMarkup(buttons)
         )
                     
 
@@ -242,12 +252,22 @@ async def channel_info(bot, message):
         await message.reply_document(file)
         os.remove(file)
 
-
+@Client.on_message(filters.command('total') & filters.user(ADMINS))
+async def total(bot, message):
+    """Show total files in database"""
+    msg = await message.reply("Processing...⏳", quote=True)
+    try:
+        total = await Media.count_documents()
+        await msg.edit(f'📁 Saved files: {total}')
+    except Exception as e:
+        logger.exception('Failed to check total files')
+        await msg.edit(f'Error: {e}')
+        
 @Client.on_message(filters.command('logs') & filters.user(ADMINS))
 async def log_file(bot, message):
     """Send log file"""
     try:
-        await message.reply_document('TelegramBot.log')
+        await message.reply_document('GxHeisenBot.log')
     except Exception as e:
         await message.reply(str(e))
 
