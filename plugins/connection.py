@@ -5,7 +5,7 @@ from info import ADMINS
 import logging
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
-@Client.on_message((filters.private | filters.group) & filters.command('connect'))
+@Client.on_message((filters.private | filters.group) & filters.command('connect') & filters.user(ADMINS))
 async def addconnection(client,message):
     userid = message.from_user.id if message.from_user else None
     if not userid:
@@ -76,7 +76,7 @@ async def addconnection(client,message):
         return
 
 
-@Client.on_message((filters.private | filters.group) & filters.command('disconnect'))
+@Client.on_message((filters.private | filters.group) & filters.command('disconnect') & filters.user(ADMINS))
 async def deleteconnection(client,message):
     userid = message.from_user.id if message.from_user else None
     if not userid:
@@ -105,7 +105,7 @@ async def deleteconnection(client,message):
 
 
 
-@Client.on_message(filters.private & filters.command(["connections"]))
+@Client.on_message(filters.private & filters.command(["connections"]) & filters.user(ADMINS))
 async def connections(client,message):
     userid = message.from_user.id
 
