@@ -2,7 +2,7 @@
   <img src="https://telegra.ph/file/e3ae2851c024d0a9226c7.jpg" alt="ʜᴇɪsᴇɴ ʟᴏɢᴏ">
 </p>
 <h1 align="center">
-  <b>Gx Hᴇɪsᴇɴ ʙᴏᴛ</b>
+  <b>Gx Hᴇɪsᴇɴ Bᴏᴛ</b>
 </h1>
 
 
