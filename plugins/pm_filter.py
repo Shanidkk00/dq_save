@@ -597,37 +597,27 @@ async def auto_filter(client, msg, spoll=False):
         btn.append(
             [InlineKeyboardButton(text="ᴍᴏʀᴇ ᴘᴀɢᴇ ɴᴏᴛ ᴀᴠᴀɪʟᴀʙʟᴇ",callback_data="pages")]
         )
-    imdb = await get_poster(search, file=(files[0]).file_name) if IMDB else None
+    respones = await get_poster(search, file=(files[0]).file_name) if IMDB else None
     if imdb:
         cap = IMDB_TEMPLATE.format(
             query = search,
-            title = imdb['title'],
-            votes = imdb['votes'],
-            aka = imdb["aka"],
-            seasons = imdb["seasons"],
-            box_office = imdb['box_office'],
-            localized_title = imdb['localized_title'],
-            kind = imdb['kind'],
-            imdb_id = imdb["imdb_id"],
-            cast = imdb["cast"],
-            runtime = imdb["runtime"],
-            countries = imdb["countries"],
-            certificates = imdb["certificates"],
-            languages = imdb["languages"],
-            director = imdb["director"],
-            writer = imdb["writer"],
-            producer = imdb["producer"],
-            composer = imdb["composer"],
-            cinematographer = imdb["cinematographer"],
-            music_team = imdb["music_team"],
-            distributors = imdb["distributors"],
-            release_date = imdb['release_date'],
-            year = imdb['year'],
-            genres = imdb['genres'],
-            poster = imdb['poster'],
-            plot = imdb['plot'],
-            rating = imdb['rating'],
-            url = imdb['url'],
+            movie_info = {}
+            movie_info["title"] = response.get("Title")
+            movie_info["year"] = response.get("Year")
+            movie_info["release"] = response.get("Released")
+            movie_info["duration"] = response.get("Runtime")
+            movie_info["genre"] = response.get("Genre")
+            movie_info["director"] = response.get("Director")
+            movie_info["writer"] = response.get("Writer")
+            movie_info["actors"] = response.get("Actors")
+            movie_info["plot"] = response.get("Plot")
+            movie_info["language"] = response.get("Language")
+            movie_info["country"] = response.get("Country")
+            movie_info["ratings"] = response.get("Ratings")
+            movie_info["imdb_rating"] = response.get("imdbRating")
+            movie_info["votes"] = response.get("imdbVotes")
+            movie_info["imdb_id"] = response.get("imdbID")
+            movie_info["pimage"] = response.get("Poster")
             **locals()
         )
     else:
@@ -636,9 +626,9 @@ async def auto_filter(client, msg, spoll=False):
         try:
             await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
-            pic = imdb.get('poster')
-            poster = pic.replace('.jpg', "._V1_UX360.jpg")
-            await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
+            pic = respones.get('pimage')
+            pimage = pic.replace('.jpg', "._V1_UX360.jpg")
+            await message.reply_photo(photo=pimage, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
         except Exception as e:
             logger.exception(e)
             await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
