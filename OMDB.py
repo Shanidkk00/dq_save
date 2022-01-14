@@ -3,11 +3,9 @@
 import os
 import requests
 
-API_KEY = environ.get(API_KEY
-
 def get_movie_info(movieTitle):
     url = 'http://www.omdbapi.com'
-    api_key = API_KEY
+    api_key = f6bea34d
     data = {'apikey':api_key,'t':movieTitle}
     response = requests.get(url,data).json()
 
