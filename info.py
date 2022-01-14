@@ -1,4 +1,5 @@
 import re
+from OMDB import get_movie_info
 from os import environ
 
 id_pattern = re.compile(r'^.\d+$')
@@ -9,6 +10,9 @@ def is_enabled(value, default):
         return False
     else:
         return default
+    
+    movie_name = message.text
+    movie_info = get_movie_info(movie_name)
 
 # Bot information
 SESSION = environ.get('SESSION', 'Media_search')
@@ -44,7 +48,7 @@ IMDB = is_enabled((environ.get('IMDB', "True")), True)
 SINGLE_BUTTON = is_enabled((environ.get('SINGLE_BUTTON', "False")), False)
 CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", None)
 BATCH_FILE_CAPTION = environ.get("BATCH_FILE_CAPTION", CUSTOM_FILE_CAPTION)
-IMDB_TEMPLATE = environ.get("IMDB_TEMPLATE", "<b>⌕ ǫᴜᴇʀʏ </b>: <code>{query}</code>\n\n<b>〓〓 ɪᴍᴅʙ ᴅᴇᴛᴀɪʟꜱ 〓〓</b>\n\n<b>⍞ ᴛɪᴛɪʟᴇ </b>: <code>{query}</code>\n<b>⌗ ɢᴇɴʀᴇ </b>: <code>{genres}</code>\n<b>★ ʀᴀᴛɪɴɢ </b>: <code>{rating} / 10</code>\n<b>⌥ ʀᴜɴᴛɪᴍᴇ </b>: <code>{runtime}</code>\n<b>⌬ ʟᴀɴɢᴜᴀɢᴇs <b>: <code>{languages}</code>\n<b>〄 ʀᴇʟᴇᴀꜱᴇ ᴅᴀᴛᴇ</b> : <code>{year}</code>\n\n<b>★ ᴘᴏᴡᴇʀᴇᴅ ʙʏ <a href=https://t.me/Cinemabranthen>ᴄɪɴᴇᴍᴀʙʀᴀɴᴛʜᴇɴ</a> </b>")
+IMDB_TEMPLATE = environ.get("IMDB_TEMPLATE", "<b>⌕ ǫᴜᴇʀʏ </b>: <code>{query}</code>\n\n<b>〓〓 ɪᴍᴅʙ ᴅᴇᴛᴀɪʟꜱ 〓〓</b>\n\n<b>⍞ ᴛɪᴛɪʟᴇ </b>: <code>{movie_info[title]}</code>\n<b>⌗ ɢᴇɴʀᴇ </b>: <code>{movie_info[genre]}</code>\n<b>★ ʀᴀᴛɪɴɢ </b>: <code>{movie_info[imdb_rating]} / 10</code>\n<b>⌥ ʀᴜɴᴛɪᴍᴇ </b>: <code>{movie_info[duration]}</code>\n<b>⌬ ʟᴀɴɢᴜᴀɢᴇs <b>: <code>{movie_info[language]}</code>\n<b>〄 ʀᴇʟᴇᴀꜱᴇ ᴅᴀᴛᴇ</b> : <code>{movie_info[release]}</code>\n\n<b>★ ᴘᴏᴡᴇʀᴇᴅ ʙʏ <a href=https://t.me/Cinemabranthen>ᴄɪɴᴇᴍᴀʙʀᴀɴᴛʜᴇɴ</a> </b>")
 LONG_IMDB_DESCRIPTION = is_enabled(environ.get("LONG_IMDB_DESCRIPTION", "False"), False)
 SPELL_CHECK_REPLY = is_enabled(environ.get("SPELL_CHECK_REPLY", "False"), False)
 MAX_LIST_ELM = environ.get("MAX_LIST_ELM", None)
