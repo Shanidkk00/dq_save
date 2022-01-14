@@ -3,7 +3,7 @@
 import os
 import requests
 
-API_KEY = environ.get(API_KEY,
+API_KEY = environ.get(API_KEY
 
 def get_movie_info(movieTitle):
     url = 'http://www.omdbapi.com'
