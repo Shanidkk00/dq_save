@@ -6,6 +6,7 @@ import ast
 from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
 from Script import script
 import pyrogram
+from OMDB import get_movie_info
 from database.connections_mdb import active_connection, all_connections, delete_connection, if_active, make_active, make_inactive
 from info import ADMINS, AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, AUTH_GROUPS, P_TTI_SHOW_OFF, IMDB, SINGLE_BUTTON, SPELL_CHECK_REPLY, IMDB_TEMPLATE
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
@@ -599,25 +600,8 @@ async def auto_filter(client, msg, spoll=False):
         )
     respones = await get_poster(search, file=(files[0]).file_name) if IMDB else None
     if imdb:
-        cap = IMDB_TEMPLATE.format(
-            query = search,
-            movie_info = {}
-            movie_info["title"] = response.get("Title")
-            movie_info["year"] = response.get("Year")
-            movie_info["release"] = response.get("Released")
-            movie_info["duration"] = response.get("Runtime")
-            movie_info["genre"] = response.get("Genre")
-            movie_info["director"] = response.get("Director")
-            movie_info["writer"] = response.get("Writer")
-            movie_info["actors"] = response.get("Actors")
-            movie_info["plot"] = response.get("Plot")
-            movie_info["language"] = response.get("Language")
-            movie_info["country"] = response.get("Country")
-            movie_info["ratings"] = response.get("Ratings")
-            movie_info["imdb_rating"] = response.get("imdbRating")
-            movie_info["votes"] = response.get("imdbVotes")
-            movie_info["imdb_id"] = response.get("imdbID")
-            movie_info["pimage"] = response.get("Poster")
+        cap = IMDB_TEMPLATE.format(get_movie_info)
+            
             **locals()
         )
     else:
