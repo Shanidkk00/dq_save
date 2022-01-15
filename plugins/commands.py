@@ -211,7 +211,7 @@ async def start(client, message):
                         InlineKeyboardButton('💞 sʜᴀʀᴇ', url="https://t.me/share/url?url=**😱%20സിനിമ%20ഭ്രാന്തൻ.²·⁰%20😱%0A%0Aഏത്%20അർധരാത്രി%20ചോദിച്ചാലും%20പടം%20കിട്ടും,%20ലോകത്തിലെ%20ഒട്ടുമിക്ക%20ഭാഷകളിലുമുള്ള%20സിനിമകളുടെ%20കളക്ഷൻ..%20❤️%0A%0A👇%20GROUP%20LINK%20👇%0A@CinemaBranthen%0A@CinemaBranthen%0A@CinemaBranthen**")
                     ],
                     [
-                        InlineKeyboardButton('🌿 Fɪʟᴇ sɪᴢᴇ【{get_size(file.file_size)}】🌿', callback_data="pages")
+                        InlineKeyboardButton('🌿 Fɪʟᴇ sɪᴢᴇ【f"{get_size(file.file_size)}】🌿', callback_data="pages")
                     ]
                     ]
     await client.send_cached_media(
