@@ -17,6 +17,16 @@ logger = logging.getLogger(__name__)
 
 BATCH_FILES = {}
 
+buttons = [
+                    [
+                        InlineKeyboardButton('🚸 ᴅᴇʟᴇᴛᴇ', callback_data="close_pages"),
+                        InlineKeyboardButton('💞 sʜᴀʀᴇ', url="https://t.me/share/url?url=**😱%20സിനിമ%20ഭ്രാന്തൻ.²·⁰%20😱%0A%0Aഏത്%20അർധരാത്രി%20ചോദിച്ചാലും%20പടം%20കിട്ടും,%20ലോകത്തിലെ%20ഒട്ടുമിക്ക%20ഭാഷകളിലുമുള്ള%20സിനിമകളുടെ%20കളക്ഷൻ..%20❤️%0A%0A👇%20GROUP%20LINK%20👇%0A@CinemaBranthen%0A@CinemaBranthen%0A@CinemaBranthen**")
+                    ],
+                    [
+                        InlineKeyboardButton(text=f'🌿 Fɪʟᴇ sɪᴢᴇ 【 {size} 】🌿', callback_data='gxneo')
+                    ]
+                    ]
+
 @Client.on_message(filters.command("start") & filters.incoming & ~filters.edited)
 async def start(client, message):
     if message.chat.type in ['group', 'supergroup']:
@@ -178,8 +188,9 @@ async def start(client, message):
         try:
             msg = await client.send_cached_media(
                 chat_id=message.from_user.id,
-                file_id=file_id
-                )
+                file_id=file_id,
+                reply_markup=InlineKeyboardMarkup(buttons))
+
             filetype = msg.media
             file = getattr(msg, filetype)
             title = file.file_name
@@ -207,15 +218,7 @@ async def start(client, message):
             f_caption=f_caption
     if f_caption is None:
         f_caption = f"{files.file_name}"
-    buttons = [
-                    [
-                        InlineKeyboardButton('🚸 ᴅᴇʟᴇᴛᴇ', callback_data="close_pages"),
-                        InlineKeyboardButton('💞 sʜᴀʀᴇ', url="https://t.me/share/url?url=**😱%20സിനിമ%20ഭ്രാന്തൻ.²·⁰%20😱%0A%0Aഏത്%20അർധരാത്രി%20ചോദിച്ചാലും%20പടം%20കിട്ടും,%20ലോകത്തിലെ%20ഒട്ടുമിക്ക%20ഭാഷകളിലുമുള്ള%20സിനിമകളുടെ%20കളക്ഷൻ..%20❤️%0A%0A👇%20GROUP%20LINK%20👇%0A@CinemaBranthen%0A@CinemaBranthen%0A@CinemaBranthen**")
-                    ],
-                    [
-                        InlineKeyboardButton(text=f'🌿 Fɪʟᴇ sɪᴢᴇ 【 {size} 】🌿', callback_data='gxneo')
-                    ]
-                    ]
+    
     await client.send_cached_media(
         chat_id=message.from_user.id,
         file_id=file_id,
