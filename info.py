@@ -20,7 +20,7 @@ API_HASH = environ['API_HASH']
 BOT_TOKEN = environ['BOT_TOKEN']
 
 #Date and Time 
-Time_Zone = os.environ["TIME_ZONE"]
+Time_Zone = environ["TIME_ZONE"]
 TimeZone = datetime.datetime.now(pytz.timezone(f"{Time_Zone}"))
 Time = TimeZone.strftime("%I:%M %p")
 Date = TimeZone.strftime("%b %d")
