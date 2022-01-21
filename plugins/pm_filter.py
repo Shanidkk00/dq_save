@@ -40,7 +40,7 @@ async def next_page(bot, query):
 
     ident, req, key, offset = query.data.split("_")
     if int(req) not in [query.from_user.id, 0]:
-        return await query.answer("Hello {query.from_user.first_name} ഇത്‌ നിനക്കുള്ളതല്ല മോനെ 😟\n\nRequest your own 😐\n\n© Cinemabranthen", show_alert=True)
+        return await query.answer(f"{query.from_user.first_name} മോനെ ഇത് നിനക്കുലതല്ല 🤭\n\n{query.message.reply_to_message.from_user.first_name} ന്റെ റിക്വസ്റ്റ് ആണ് ഇത് 🙂\n\nRequest your own 🥰\n\n© Cinemabranthen", show_alert=True)
     try:
         offset = int(offset)
     except:
@@ -58,11 +58,28 @@ async def next_page(bot, query):
 
     if not files:
         return
-
-    btn = [InlineKeyboardButton("Text 1", "callback1"), InlineKeyboardButton("Text 2", "callback2"), InlineKeyboardButton("Text 3", "callback3")]
-    for file in files:
-        btn.append([InlineKeyboardButton(text=f"▫ {get_size(file.file_size)} ▸ {file.file_name}", callback_data=f'files#{file.file_id}')])
-                                
+    if SINGLE_BUTTON:
+        btn = [
+            [
+                InlineKeyboardButton(
+                    text=f"▫ {get_size(file.file_size)} ▸ {file.file_name}", callback_data=f'files#{file.file_id}'
+                ),
+            ]
+            for file in files
+        ]
+    else:
+        btn = [
+            [
+                InlineKeyboardButton(
+                    text=f"{file.file_name}", callback_data=f'files#{file.file_id}'
+                ),
+                InlineKeyboardButton(
+                    text=f"{get_size(file.file_size)}",
+                    callback_data=f'files_#{file.file_id}',
+                ),
+            ]
+            for file in files
+        ]
 
     if 0 < offset <= 7:
         off_set = 0
