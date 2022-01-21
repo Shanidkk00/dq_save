@@ -58,6 +58,12 @@ async def next_page(bot, query):
 
     if not files:
         return
+        btn.append(
+                    [   
+                        InlineKeyboardButton('ɪɴꜰᴏ', callback_data='no_results'), 
+                        InlineKeyboardButton('ᴍᴏᴠɪᴇ', callback_data='no_results'), 
+                        InlineKeyboardButton('sᴇʀɪᴇs', callback_data='no_results')],
+                )
     if SINGLE_BUTTON:
         btn = [
             [
@@ -566,6 +572,12 @@ async def auto_filter(client, msg, spoll=False):
     else:
         message = msg.message.reply_to_message # msg will be callback query
         search, files, offset, total_results = spoll
+        btn.append(
+                    [   
+                        InlineKeyboardButton('ɪɴꜰᴏ', callback_data='no_results'), 
+                        InlineKeyboardButton('ᴍᴏᴠɪᴇ', callback_data='no_results'), 
+                        InlineKeyboardButton('sᴇʀɪᴇs', callback_data='no_results')],
+                )
     if SINGLE_BUTTON:
         btn = [
             [
