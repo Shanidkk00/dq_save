@@ -46,7 +46,7 @@ CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", None)
 BATCH_FILE_CAPTION = environ.get("BATCH_FILE_CAPTION", CUSTOM_FILE_CAPTION)
 IMDB_TEMPLATE = environ.get("IMDB_TEMPLATE", "<b>⌕ ǫᴜᴇʀʏ </b>: <code>{query}</code>\n\n<b>〓〓 ɪᴍᴅʙ ᴅᴇᴛᴀɪʟꜱ 〓〓</b>\n\n<b>⍞ ᴛɪᴛɪʟᴇ </b>: <code>{query}</code>\n<b>⌗ ɢᴇɴʀᴇ </b>: <code>{genres}</code>\n<b>★ ʀᴀᴛɪɴɢ </b>: <code>{rating} / 10</code>\n<b>⌥ ʀᴜɴᴛɪᴍᴇ </b>: <code>{runtime}</code>\n<b>⌬ ʟᴀɴɢᴜᴀɢᴇs <b>: <code>{languages}</code>\n<b>〄 ʀᴇʟᴇᴀꜱᴇ ᴅᴀᴛᴇ</b> : <code>{year}</code>\n\n<b>★ ᴘᴏᴡᴇʀᴇᴅ ʙʏ <a href=https://t.me/Cinemabranthen>ᴄɪɴᴇᴍᴀʙʀᴀɴᴛʜᴇɴ</a> </b>")
 LONG_IMDB_DESCRIPTION = is_enabled(environ.get("LONG_IMDB_DESCRIPTION", "False"), False)
-SPELL_CHECK_REPLY = is_enabled(environ.get("SPELL_CHECK_REPLY", "False"), True)
+SPELL_CHECK_REPLY = is_enabled(environ.get("SPELL_CHECK_REPLY", "True"), True)
 MAX_LIST_ELM = environ.get("MAX_LIST_ELM", None)
 INDEX_REQ_CHANNEL = int(environ.get('INDEX_REQ_CHANNEL', LOG_CHANNEL))
 FILE_STORE_CHANNEL = [int(ch) for ch in (environ.get('FILE_STORE_CHANNEL', '')).split()]
