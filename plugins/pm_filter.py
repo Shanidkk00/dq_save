@@ -58,7 +58,7 @@ async def next_page(bot, query):
 
     if not files:
         return
-    btn = [InlineKeyboardButton("Text 1", "callback1"), InlineKeyboardButton("Text 2", "callback2"), InlineKeyboardButton("Text 3", "callback3")]
+    btn = [InlineKeyboardButton("ɪɴꜰᴏ", "callback1"), InlineKeyboardButton("ᴍᴏᴠɪᴇ", "callback2"), InlineKeyboardButton("sᴇʀɪᴇs", "callback3")]
     for file in files:
         btn.append([InlineKeyboardButton(text=f"▫ {get_size(file.file_size)} ▸ {file.file_name}", callback_data=f'files#{file.file_id}')])
 
