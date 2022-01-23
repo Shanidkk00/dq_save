@@ -7,7 +7,7 @@ from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidD
 from Script import script
 import pyrogram
 from database.connections_mdb import active_connection, all_connections, delete_connection, if_active, make_active, make_inactive
-from info import ADMINS, AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, Date, Time, AUTH_GROUPS, P_TTI_SHOW_OFF, IMDB, SINGLE_BUTTON, SPELL_CHECK_REPLY, IMDB_TEMPLATE
+from info import ADMINS, AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, Date, Day, Time, AUTH_GROUPS, P_TTI_SHOW_OFF, IMDB, SINGLE_BUTTON, SPELL_CHECK_REPLY, IMDB_TEMPLATE
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
@@ -585,7 +585,7 @@ async def auto_filter(client, msg, spoll=False):
         )
     imdb = await get_poster(search, file=(files[0]).file_name) if IMDB else None
     if imdb:
-        cap = f"{IMDB_TEMPLATE}\n\n⌚️ Tɪᴍᴇ : {Time}\n📆 Dᴀᴛᴇ : {Date}".format(
+        cap = f"{IMDB_TEMPLATE}\n\n⌚️ Tɪᴍᴇ : {Time}\n📆 Dᴀᴛᴇ : {Date}\n{Day}".format(
             query = search,
             title = imdb['title'],
             votes = imdb['votes'],
