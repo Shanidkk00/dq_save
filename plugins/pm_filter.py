@@ -585,7 +585,7 @@ async def auto_filter(client, msg, spoll=False):
         )
     imdb = await get_poster(search, file=(files[0]).file_name) if IMDB else None
     if imdb:
-        cap = f"{IMDB_TEMPLATE}\n\n⌚️ Tɪᴍᴇ : {Time}\n📆 Dᴀᴛᴇ : {Date}\n{Day}".format(
+        cap = f"{IMDB_TEMPLATE}\n\n<b>⌚️ Tɪᴍᴇ :</b> <code>{Time}</code>\n<b>📆 Dᴀᴛᴇ :</b> <code>{Date}</code>".format(
             query = search,
             title = imdb['title'],
             votes = imdb['votes'],
