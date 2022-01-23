@@ -20,8 +20,8 @@ BOT_TOKEN = environ['BOT_TOKEN']
 
 #TimeZone
 TimeZone = datetime.datetime.now(pytz.timezone("Asia/Kolkata"))
-Time = TimeZone.strftime("%I:%M %p")
-Date = TimeZone.strftime("%b %d") 
+Time = TimeZone.strftime("%H:%M:%S %p")
+Date = TimeZone.strftime("%d-%m-%Y") 
 #Bot Settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
 USE_CAPTION_FILTER = bool(environ.get('USE_CAPTION_FILTER', False))
