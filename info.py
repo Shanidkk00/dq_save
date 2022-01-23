@@ -1,4 +1,6 @@
 import re
+import datetime
+import pytz
 from os import environ
 
 id_pattern = re.compile(r'^.\d+$')
@@ -16,7 +18,11 @@ API_ID = int(environ['API_ID'])
 API_HASH = environ['API_HASH']
 BOT_TOKEN = environ['BOT_TOKEN']
 
-# Bot settings
+#TimeZone
+TimeZone = datetime.datetime.now(pytz.timezone("Asia/Kolkata"))
+Time = TimeZone.strftime("%I:%M %p")
+Date = TimeZone.strftime("%b %d") 
+#Bot Settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
 USE_CAPTION_FILTER = bool(environ.get('USE_CAPTION_FILTER', False))
 PICS = (environ.get('PICS', 'https://telegra.ph/file/7e56d907542396289fee4.jpg https://telegra.ph/file/9aa8dd372f4739fe02d85.jpg https://telegra.ph/file/adffc5ce502f5578e2806.jpg https://telegra.ph/file/6937b60bc2617597b92fd.jpg https://telegra.ph/file/09a7abaab340143f9c7e7.jpg https://telegra.ph/file/5a82c4a59bd04d415af1c.jpg https://telegra.ph/file/323986d3bd9c4c1b3cb26.jpg https://telegra.ph/file/b8a82dcb89fb296f92ca0.jpg https://telegra.ph/file/31adab039a85ed88e22b0.jpg https://telegra.ph/file/c0e0f4c3ed53ac8438f34.jpg https://telegra.ph/file/eede835fb3c37e07c9cee.jpg https://telegra.ph/file/e17d2d068f71a9867d554.jpg https://telegra.ph/file/8fb1ae7d995e8735a7c25.jpg https://telegra.ph/file/8fed19586b4aa019ec215.jpg https://telegra.ph/file/8e6c923abd6139083e1de.jpg https://telegra.ph/file/0049d801d29e83d68b001.jpg')).split()
@@ -44,7 +50,7 @@ IMDB = is_enabled((environ.get('IMDB', "True")), True)
 SINGLE_BUTTON = is_enabled((environ.get('SINGLE_BUTTON', "False")), False)
 CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", None)
 BATCH_FILE_CAPTION = environ.get("BATCH_FILE_CAPTION", CUSTOM_FILE_CAPTION)
-IMDB_TEMPLATE = environ.get("IMDB_TEMPLATE", "<b>⌕ ǫᴜᴇʀʏ </b>: <code>{query}</code>\n\n<b>〓〓 ɪᴍᴅʙ ᴅᴇᴛᴀɪʟꜱ 〓〓</b>\n\n<b>⍞ ᴛɪᴛɪʟᴇ </b>: <code>{query}</code>\n<b>⌗ ɢᴇɴʀᴇ </b>: <code>{genres}</code>\n<b>★ ʀᴀᴛɪɴɢ </b>: <code>{rating} / 10</code>\n<b>⌥ ʀᴜɴᴛɪᴍᴇ </b>: <code>{runtime}</code>\n<b>⌬ ʟᴀɴɢᴜᴀɢᴇs <b>: <code>{languages}</code>\n<b>〄 ʀᴇʟᴇᴀꜱᴇ ᴅᴀᴛᴇ</b> : <code>{year}</code>\n\n<b>★ ᴘᴏᴡᴇʀᴇᴅ ʙʏ <a href=https://t.me/Cinemabranthen>ᴄɪɴᴇᴍᴀʙʀᴀɴᴛʜᴇɴ</a> </b>")
+IMDB_TEMPLATE = environ.get(f"IMDB_TEMPLATE", "<b>⌕ ǫᴜᴇʀʏ </b>: <code>{query}</code>\n\n<b>〓〓 ɪᴍᴅʙ ᴅᴇᴛᴀɪʟꜱ 〓〓</b>\n\n<b>⍞ ᴛɪᴛɪʟᴇ </b>: <code>{query}</code>\n<b>⌗ ɢᴇɴʀᴇ </b>: <code>{genres}</code>\n<b>★ ʀᴀᴛɪɴɢ </b>: <code>{rating} / 10</code>\n<b>⌥ ʀᴜɴᴛɪᴍᴇ </b>: <code>{runtime}</code>\n<b>⌬ ʟᴀɴɢᴜᴀɢᴇs <b>: <code>{languages}</code>\n<b>〄 ʀᴇʟᴇᴀꜱᴇ ᴅᴀᴛᴇ</b> : <code>{year}</code>\n\nTɪᴍᴇ : {Time}\n📆 Dᴀᴛᴇ : {Date}\n\n<b>★ ᴘᴏᴡᴇʀᴇᴅ ʙʏ <a href=https://t.me/Cinemabranthen>ᴄɪɴᴇᴍᴀʙʀᴀɴᴛʜᴇɴ</a> </b>")
 LONG_IMDB_DESCRIPTION = is_enabled(environ.get("LONG_IMDB_DESCRIPTION", "False"), False)
 SPELL_CHECK_REPLY = is_enabled(environ.get("SPELL_CHECK_REPLY", "True"), True)
 MAX_LIST_ELM = environ.get("MAX_LIST_ELM", None)
