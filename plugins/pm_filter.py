@@ -428,14 +428,16 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.message.reply_to_message.delete()
         except:
             pass
-    elif query.data == "manuelfilter":
+    elif query.data == "malspell":
         buttons = [[
-            InlineKeyboardButton('👩‍🦯 Back', callback_data='help'),
-            InlineKeyboardButton('⏹️ Buttons', callback_data='button')
+           InlineKeyboardButton('ᴄʜᴀɴɴᴇʟ', url=f'https://google.com/search?q={search}'),
+           InlineKeyboardButton('ᴄʟᴏsᴇ',url=f'https://yandex.com/search/?text={search}')
+           ],[
+           InlineKeyboardButton('🇬🇧 ᴛʀᴀɴsʟᴀᴛᴇ ᴛᴏ ᴇɴɢʟɪsʜ 🇬🇧', callback_data='engspell')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
-            text=script.MANUELFILTER_TXT,
+            text=script.MALAYALAMSEPLL_TXT,
             reply_markup=reply_markup,
             parse_mode='html'
         )
