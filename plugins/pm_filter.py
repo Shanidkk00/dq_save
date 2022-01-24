@@ -682,7 +682,7 @@ async def advantage_spell_chok(msg):
     movielist += [(re.sub(r'(\-|\(|\)|_)', '', i, flags=re.IGNORECASE)).strip() for i in gs_parsed]
     movielist = list(dict.fromkeys(movielist)) # removing duplicates
     if not movielist:
-        k = await msg.reply(f"""<b>Hello {} I could not find the movie you asked for 🥴</b>
+        k = await msg.reply("""<b>Hello {} I could not find the movie you asked for 🥴</b>
                             
 <b>Google, Yandex Click on any button and find the <u>CORRECT MOVIE NAME </u>and enter it here but the movie will be available 🙃
                             
