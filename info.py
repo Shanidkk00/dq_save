@@ -19,7 +19,7 @@ API_HASH = environ['API_HASH']
 BOT_TOKEN = environ['BOT_TOKEN']
 
 #TimeZone
-TimeZone = datetime.datetime.now(pytz.timezone("(GMT+05:30)"))
+TimeZone = datetime.datetime.now(pytz.timezone("Asia/Kolkata"))
 Time = TimeZone.strftime("%H:%M:%S %p")
 Date = TimeZone.strftime("%d-%m-%Y") 
 Day = TimeZone.strftime("%wd")
