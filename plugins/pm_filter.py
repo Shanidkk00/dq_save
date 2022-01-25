@@ -702,7 +702,7 @@ If you do not receive the movie even after entering the correct name ...</b> <co
             )
         )
         await asyncio.sleep(20)
-        await message.delete()
+        await k.delete()
         await msg.delete()
         return
                  
