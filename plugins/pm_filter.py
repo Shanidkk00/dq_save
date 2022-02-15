@@ -577,13 +577,13 @@ async def auto_filter(client, msg, spoll=False):
         )
     imdb = await get_poster(search, file=(files[0]).file_name) if IMDB else None
     if imdb:
-        cap = f"{IMDB_TEMPLATE}\n\n<b>⌚️ Tɪᴍᴇ :</b> <code>{Time}</code>\n<b>📆 Dᴀᴛᴇ :</b> <code>{Date}</code>/n/n<i>🥳 </i><i><b>ᴛᴏᴅᴀʏ ɪꜱ <code>{Day}</code> ʙʏ</b> </i><a href='http://t.me/CinimaLokham'><b><i>ᴄɪɴɪᴍᴀʟᴏᴋʜᴀᴍ</i></b></a>.format(
-            query = search,
-            title = imdb['title'],
-            votes = imdb['votes'],
-            aka = imdb["aka"],
-            seasons = imdb["seasons"],
-            box_office = imdb['box_office'],
+        cap = TEMPLATE.format(
+            query=search,
+            title=imdb['title'],
+            votes=imdb['votes'],
+            aka=imdb["aka"],
+            seasons=imdb["seasons"],
+            box_office=imdb['box_office'],
             localized_title = imdb['localized_title'],
             kind = imdb['kind'],
             imdb_id = imdb["imdb_id"],
