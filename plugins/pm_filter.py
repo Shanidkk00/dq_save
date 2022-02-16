@@ -716,25 +716,13 @@ async def advantage_spell_chok(msg):
     g_s += await search_gagala(msg.text)
     gs_parsed = []
     if not g_s:
-        k = await msg.reply("""<b>Hello {} I could not find the movie you asked for 🥴</b>
-        
-        <b>Google, Yandex Click on any button and find the <u>CORRECT MOVIE NAME </u>and enter it here but the movie will be available 🙃
-        
-        If you do not receive the movie even after entering the correct name ...</b> <code>@admin type movie name</code> <b>Inform the admin in this format .. We will upload within 24 hours 😇</b>
-        """.format(msg.from_user.mention),
-                            parse_mode="html",
-                            reply_markup=InlineKeyboardMarkup(
-                                [
-                                    [
-                                        InlineKeyboardButton('🔍 ɢᴏᴏɢʟᴇ 🔎', url=f'https://google.com/search?q={search}'),
-                                        InlineKeyboardButton(' 🔍 ʏᴀɴᴅᴇx 🔎', url=f'https://yandex.com/search/?text={search}')
-                                    ],
-                                    [
-                                        InlineKeyboardButton("🇮🇳 ᴛʀᴀɴsʟᴀᴛᴇ ᴛᴏ ᴍᴀʟᴀʏᴀʟᴀᴍ 🇮🇳", callback_data="malspell")
-                                    ]
-                                ]
-                            )
-                           )
+        btn = [[
+            InlineKeyboardButton('🔍 ɢᴏᴏɢʟᴇ 🔎', url=f'https://google.com/search?q={search}'),
+            InlineKeyboardButton(' 🔍 ʏᴀɴᴅᴇx 🔎', url=f'https://yandex.com/search/?text={search}')
+        ],[
+            InlineKeyboardButton("🇮🇳 ᴛʀᴀɴsʟᴀᴛᴇ ᴛᴏ ᴍᴀʟᴀʏᴀʟᴀᴍ 🇮🇳", callback_data="malspell")
+        ]]        
+        k = await msg.reply(f"<b>Hello {msg.from_user.mention} I could not find the movie you asked for 🥴</b>\n\n<b>Google, Yandex Click on any button and find the <u>CORRECT MOVIE NAME </u>and enter it here but the movie will be available 🙃\n\nIf you do not receive the movie even after entering the correct name ...</b> <code>@admin type movie name</code> <b>Inform the admin in this format .. We will upload within 24 hours 😇</b>", reply_markup=InlineKeyboardMarkup(btn))
         await asyncio.sleep(20)
         await k.delete()
         await msg.delete()
@@ -764,25 +752,13 @@ async def advantage_spell_chok(msg):
     movielist += [(re.sub(r'(\-|\(|\)|_)', '', i, flags=re.IGNORECASE)).strip() for i in gs_parsed]
     movielist = list(dict.fromkeys(movielist))  # removing duplicates
     if not movielist:
-        k = await msg.reply("""<b>Hello {} I could not find the movie you asked for 🥴</b>
-                            
-<b>Google, Yandex Click on any button and find the <u>CORRECT MOVIE NAME </u>and enter it here but the movie will be available 🙃
-                            
-If you do not receive the movie even after entering the correct name ...</b> <code>@admin type movie name</code> <b>Inform the admin in this format .. We will upload within 24 hours 😇</b>
-                 """.format(msg.from_user.mention),
-                 parse_mode="html",
-                 reply_markup=InlineKeyboardMarkup(
-                [
-                    [
-                       InlineKeyboardButton('🔍 ɢᴏᴏɢʟᴇ 🔎', url=f'https://google.com/search?q={search}'),
-                        InlineKeyboardButton(' 🔍 ʏᴀɴᴅᴇx 🔎', url=f'https://yandex.com/search/?text={search}')
-                    ],
-                    [
-                        InlineKeyboardButton("🇮🇳 ᴛʀᴀɴsʟᴀᴛᴇ ᴛᴏ ᴍᴀʟᴀʏᴀʟᴀᴍ 🇮🇳", callback_data="malspell")
-                    ]
-                ]
-            )
-        )
+        btn = [[
+            InlineKeyboardButton('🔍 ɢᴏᴏɢʟᴇ 🔎', url=f'https://google.com/search?q={search}'),
+            InlineKeyboardButton(' 🔍 ʏᴀɴᴅᴇx 🔎', url=f'https://yandex.com/search/?text={search}')
+        ],[
+            InlineKeyboardButton("🇮🇳 ᴛʀᴀɴsʟᴀᴛᴇ ᴛᴏ ᴍᴀʟᴀʏᴀʟᴀᴍ 🇮🇳", callback_data="malspell")
+        ]]        
+        k = await msg.reply(f"<b>Hello {msg.from_user.mention} I could not find the movie you asked for 🥴</b>\n\n<b>Google, Yandex Click on any button and find the <u>CORRECT MOVIE NAME </u>and enter it here but the movie will be available 🙃\n\nIf you do not receive the movie even after entering the correct name ...</b> <code>@admin type movie name</code> <b>Inform the admin in this format .. We will upload within 24 hours 😇</b>", reply_markup=InlineKeyboardMarkup(btn))
         await asyncio.sleep(20)
         await k.delete()
         await msg.delete()
