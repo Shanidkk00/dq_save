@@ -29,7 +29,7 @@ logger.setLevel(logging.ERROR)
 BUTTONS = {}
 SPELL_CHECK = {}
 
-
+NORGE_IMG = f"https://telegra.ph/file/4f836a500ca6f17e9bcf2.jpg"
 
 @Client.on_message(filters.group & filters.text & ~filters.edited & filters.incoming)
 async def give_filter(client, message):
@@ -678,9 +678,9 @@ async def auto_filter(client, msg, spoll=False):
             await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
         except Exception as e:
             logger.exception(e)
-            await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
+            await message.reply_text(photo=NORGE_IMG, cap, reply_markup=InlineKeyboardMarkup(btn))
     else:
-        await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
+        await message.reply_text(photo=NORGE_IMG, cap, reply_markup=InlineKeyboardMarkup(btn))
     if spoll:
         await msg.message.delete()
          
