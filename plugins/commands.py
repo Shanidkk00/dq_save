@@ -43,7 +43,7 @@ async def start(client, message):
     if len(message.command) != 2:
         buttons = [[
             InlineKeyboardButton('ᴄʟɪᴄᴋ ʜᴇʀᴇ ꜰᴏʀ ᴍᴏʀᴇ ʙᴜᴛᴛᴏɴs', callback_data='help')
-           ]]
+        ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
             photo=random.choice(PICS),
@@ -73,8 +73,7 @@ async def start(client, message):
             chat_id=message.from_user.id,
             text="<b>⚠️ ᴘʟᴇᴀsᴇ ғᴏʟʟᴏᴡ ᴛʜɪs ʀᴜʟᴇs ⚠️</b>\n\n<b>{} ആദ്യം【 <a href=https://t.me/CLMlinkz>ᴊᴏɪɴ ɢʀᴏᴜᴘ</a> 】എന്ന ബട്ടൺ ക്ലിക്ക് ചെയ്തു ഗ്രൂപ്പിൽ ജോയിൻ ചെയ്.. എന്നിട്ട് വീണ്ടു ബോട്ടിൽ വന്നിട്ട്【 <a href=https://t.me/GTDulquarbot>ᴍᴇ ᴊᴏɪɴᴇᴅ</a> 】എന്ന ബട്ടൺ ക്ലിക്ക് ചെയ്താൽ ഫയൽ കിട്ടുന്നതായിരിക്കും</b>\n\n<b>Fɪʀsᴛ ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ【 <a href=https://t.me/CLMlinkz>ᴊᴏɪɴ ɢʀᴏᴜᴘ</a> 】ʙᴜᴛᴛᴏɴ ᴀɴᴅ ᴊᴏɪɴ ᴛʜᴇ ɢʀᴏᴜᴘ. ᴛʜᴇɴ ᴄᴏᴍᴇ ʙᴀᴄᴋ ᴛᴏ ᴛʜᴇ ʙᴏᴛ ᴄʟɪᴄᴋ ᴏɴ【 <a href=https://t.me/GTDulquarbot>ᴍᴇ ᴊᴏɪɴᴇᴅ</a> 】ʙᴜᴛᴛᴏɴ ᴛᴏ ɢᴇᴛ ᴛʜᴇ ғɪʟᴇ...</b>".format(message.from_user.mention),
             reply_markup=InlineKeyboardMarkup(btn),
-            parse_mode="html",
-            disable_web_page_preview=True
+            parse_mode="html"
             )
         return
     if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
@@ -238,7 +237,8 @@ async def start(client, message):
         chat_id=message.from_user.id,
         file_id=file_id,
         caption=f_caption,
-        reply_markup=InlineKeyboardMarkup(buttons)
+        protect_content=True if pre == 'filep' else False,
+        reply_markup=InlineKeyboardMarkup(buttons),
         )
                     
 
@@ -272,18 +272,7 @@ async def channel_info(bot, message):
         await message.reply_document(file)
         os.remove(file)
 
-        
-@Client.on_message(filters.command('total') & filters.user(ADMINS))
-async def total(bot, message):
-    """Show total files in database"""
-    msg = await message.reply("Processing...⏳", quote=True)
-    try:
-        total = await Media.count_documents()
-        await msg.edit(f'📁 Saved files: {total}')
-    except Exception as e:
-        logger.exception('Failed to check total files')
-        await msg.edit(f'Error: {e}')
-        
+
 @Client.on_message(filters.command('logs') & filters.user(ADMINS))
 async def log_file(bot, message):
     """Send log file"""
@@ -369,7 +358,7 @@ async def delete_all_index_confirm(bot, message):
     await message.message.edit('Succesfully Deleted All The Indexed Files.')
 
 
-@Client.on_message(filters.command('settings') & filters.user(ADMINS))
+@Client.on_message(filters.command('settings'))
 async def settings(client, message):
     userid = message.from_user.id if message.from_user else None
     if not userid:
@@ -483,7 +472,7 @@ async def settings(client, message):
 
 
 
-@Client.on_message(filters.command('set_template') & filters.user(ADMINS))
+@Client.on_message(filters.command('set_template'))
 async def save_template(client, message):
     sts = await message.reply("Checking template")
     userid = message.from_user.id if message.from_user else None
