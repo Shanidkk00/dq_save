@@ -2,7 +2,6 @@ import os
 from pyrogram import Client, filters
 from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant, MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
 from info import IMDB_TEMPLATE
-from info import ADMINS
 from utils import extract_user, get_file_id, get_poster, last_online
 import time
 from datetime import datetime
@@ -11,7 +10,7 @@ import logging
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
 
-@Client.on_message(filters.command('id') & filters.user(ADMINS))
+@Client.on_message(filters.command('id'))
 async def showid(client, message):
     chat_type = message.chat.type
     if chat_type == "private":
@@ -55,7 +54,7 @@ async def showid(client, message):
             quote=True
         )
 
-@Client.on_message(filters.command(["info"]) & filters.user(ADMINS))
+@Client.on_message(filters.command(["info"]))
 async def who_is(client, message):
     # https://github.com/SpEcHiDe/PyroGramBot/blob/master/pyrobot/plugins/admemes/whois.py#L19
     status_message = await message.reply_text(
@@ -79,7 +78,7 @@ async def who_is(client, message):
     message_out_str += f"<b>➲Last Name:</b> {last_name}\n"
     message_out_str += f"<b>➲Telegram ID:</b> <code>{from_user.id}</code>\n"
     username = from_user.username or "<b>None</b>"
-    dc_id = from_user.dc_id or "[User Doesnt Have A Valid DP]"
+    dc_id = from_user.dc_id or "[User Doesn't Have A Valid DP]"
     message_out_str += f"<b>➲Data Centre:</b> <code>{dc_id}</code>\n"
     message_out_str += f"<b>➲User Name:</b> @{username}\n"
     message_out_str += f"<b>➲User 𝖫𝗂𝗇𝗄:</b> <a href='tg://user?id={from_user.id}'><b>Click Here</b></a>\n"
@@ -128,7 +127,7 @@ async def who_is(client, message):
         )
     await status_message.delete()
 
-@Client.on_message(filters.command(["imdb", 'search']) & filters.user(ADMINS))
+@Client.on_message(filters.command(["imdb", 'search']))
 async def imdb_search(client, message):
     if ' ' in message.text:
         k = await message.reply('Searching ImDB')
