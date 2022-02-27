@@ -501,11 +501,7 @@ async def report(bot, message):
             except:
                 pass
         if success:
-            buttons = [[
-                InlineKeyboardButton('✅ Rᴇᴘᴏʀᴛ Sᴇɴᴛ Sᴜᴄᴄᴇssꜰᴜʟ ✅', callback_data='close_pages')
-            ]]
-            reply_markup = InlineKeyboardMarkup(buttons)
-            k = await message.reply_text("**Reported to Admins!**", reply_markup=reply_markup)
+            k = await message.reply_text("**Reported to Admins!**")
             await asyncio.sleep(30)
             await k.delete()
             return 
