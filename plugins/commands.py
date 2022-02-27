@@ -472,6 +472,48 @@ async def settings(client, message):
 
 
 
+@Client.on_message(
+    (
+        filters.command(["report"]) |
+        filters.regex("@admins") |
+        filters.regex("@admin")
+    ) &
+    filters.group
+)
+async def report(bot, message):
+    if message.reply_to_message:
+        chat_id = message.chat.id
+        reporter = str(message.from_user.id)
+        mention = message.from_user.mention
+        admins = await bot.get_chat_members(chat_id=chat_id, filter="administrators")
+        success = False
+        report = f"Reporter : {mention} ({reporter})" + "\n"
+        report += f"Message : {message.reply_to_message.link}"
+        for admin in admins:
+            try:
+                reported_post = await message.reply_to_message.forward(admin.user.id)
+                await reported_post.reply_text(
+                    text=report,
+                    chat_id=admin.user.id,
+                    disable_web_page_preview=True
+                )
+                success = True
+            except:
+                pass
+        if success:
+        buttons = [[
+            InlineKeyboardButton('✅ Rᴇᴘᴏʀᴛ Sᴇɴᴛ Sᴜᴄᴄᴇssꜰᴜʟ ✅', callback_data='close_pages')         
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        k = await message.reply_sticker(
+            "CAACAgUAAxkBAAEEA7liG48lVnCeDRa7XS6ljHR9c08VsQACqQADyJRkFOv8RlMxwyrKIwQ",
+            reply_markup=reply_markup
+        )
+        await asyncio.sleep(20)
+        await k.delete()
+        return 
+
+        
 @Client.on_message(filters.command('set_template'))
 async def save_template(client, message):
     sts = await message.reply("Checking template")
