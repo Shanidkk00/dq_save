@@ -505,9 +505,7 @@ async def report(bot, message):
                 InlineKeyboardButton('✅ Rᴇᴘᴏʀᴛ Sᴇɴᴛ Sᴜᴄᴄᴇssꜰᴜʟ ✅', callback_data='close_pages')
             ]]
             reply_markup = InlineKeyboardMarkup(buttons)
-            k = await message.reply_sticker("CAACAgUAAxkBAAEEA7liG48lVnCeDRa7XS6ljHR9c08VsQACqQADyJRkFOv8RlMxwyrKIwQ",
-                                            reply_markup=reply_markup
-                                           )
+            k = await message.reply_text("**Reported to Admins!**", reply_markup=reply_markup)
             await asyncio.sleep(30)
             await k.delete()
             return 
