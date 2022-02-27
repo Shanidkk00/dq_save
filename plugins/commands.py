@@ -501,10 +501,7 @@ async def report(bot, message):
             except:
                 pass
         if success:
-            k = await message.reply_text("**Reported to Admins!**")
-            await asyncio.sleep(30)
-            await k.delete()
-            return 
+            await message.reply_text("**Reported to Admins!**")
 
         
 @Client.on_message(filters.command('set_template'))
