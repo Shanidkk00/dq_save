@@ -108,8 +108,8 @@ This module only works for my admins
     STATUS_TXT = """🗂️ ᴛᴏᴛᴀʟ ғɪʟᴇs: <code>{}</code>
 👤 ᴛᴏᴛᴀʟ ᴜsᴇʀs: <code>{}</code>
 👥 ᴛᴏᴛᴀʟ ᴄʜᴀᴛs: <code>{}</code>
-📈 ᴜsᴇᴅ sᴛᴏʀᴀɢᴇ: <code>{}</code> 𝙼𝚒𝙱
-📊 ғʀᴇᴇ sᴛᴏʀᴀɢᴇ: <code>{}</code> 𝙼𝚒𝙱"""
+📈 ᴜsᴇᴅ sᴛᴏʀᴀɢᴇ: <code>{}</code>
+📊 ғʀᴇᴇ sᴛᴏʀᴀɢᴇ: <code>{}</code>"""
     LOG_TEXT_G = """#NewGroup
 Group = {}(<code>{}</code>)
 Total Members = <code>{}</code>
