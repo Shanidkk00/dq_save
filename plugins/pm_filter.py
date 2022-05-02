@@ -470,7 +470,25 @@ async def cb_handler(client: Client, query: CallbackQuery):
         except:
             pass
     elif query.data == "malspell":
-        await query.answer(f"ഹലോ {query.from_user.first_name} നിങ്ങൾ ആവശ്യപ്പെട്ട സിനിമ കണ്ടെത്താൻ കഴിഞ്ഞില്ല🥴.Google,Yandex ഏതെങ്കിലും ബട്ടണിൽ ക്ലിക്ക് ചെയ്ത് സിനിമയുടെ പേര് കണ്ടെത്തി ഇവിടെ നൽകുക എന്നാലേ സിനിമ കിട്ടുകയുള്ളു🙂.", show_alert=True)
+        search = query.message.text
+        spell_search = search.replace(".", "")
+        btn = [[
+            InlineKeyboardButton('🔍 ɢᴏᴏɢʟᴇ 🔎', url=f'https://google.com/{spell_search}'),
+            InlineKeyboardButton(' 🔍 ʏᴀɴᴅᴇx 🔎', url=f'https://yandex.com/{spell_search}')
+        ],[
+            InlineKeyboardButton("🇺🇸 ᴛʀᴀɴsʟᴀᴛᴇ ᴛᴏ ᴇɴɢʟɪꜱʜ 🇺🇸", callback_data="engspell")
+        ]] 
+        await query.message.edit(script.SPELL_CHECK_MAL, reply_markup=InlineKeyboardMarkup(btn))
+    elif query.data == "engspell":
+        search = query.message.text
+        spell_search = search.replace(".", "")
+        btn = [[
+            InlineKeyboardButton('🔍 ɢᴏᴏɢʟᴇ 🔎', url=f'https://google.com/{spell_search}'),
+            InlineKeyboardButton(' 🔍 ʏᴀɴᴅᴇx 🔎', url=f'https://yandex.com/{spell_search}')
+        ],[
+            InlineKeyboardButton("🇮🇳 ᴛʀᴀɴsʟᴀᴛᴇ ᴛᴏ ᴍᴀʟᴀʏᴀʟᴀᴍ 🇮🇳", callback_data="malspell")
+        ]] 
+        await query.message.edit(script.SPELL_CHECK_ENG, reply_markup=InlineKeyboardMarkup(btn))
     elif query.data == "button":
         buttons = [[
             InlineKeyboardButton('👩‍🦯 Back', callback_data='manuelfilter')
@@ -747,7 +765,7 @@ async def advantage_spell_chok(msg):
         ],[
             InlineKeyboardButton("🇮🇳 ᴛʀᴀɴsʟᴀᴛᴇ ᴛᴏ ᴍᴀʟᴀʏᴀʟᴀᴍ 🇮🇳", callback_data="malspell")
         ]]        
-        k = await msg.reply(f"<b>Hello {msg.from_user.mention} I could not find the movie you asked for 🥴</b>\n\n<b>Google, Yandex Click on any button and find the <u>CORRECT MOVIE NAME </u>and enter it here but the movie will be available 🙃\n\nIf you do not receive the movie even after entering the correct name ...</b> <code>@admin type movie name</code> <b>Inform the admin in this format .. We will upload within 24 hours 😇</b>", reply_markup=InlineKeyboardMarkup(btn))
+        k=await msg.reply(script.SPELL_CHECK_ENG, reply_markup=InlineKeyboardMarkup(btn))
         await asyncio.sleep(20)
         await k.delete()
         await msg.delete()
