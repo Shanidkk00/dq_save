@@ -470,7 +470,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         except:
             pass
     elif query.data == "malspell":
-        meme = query.message.text
+        meme = query.text
         search = meme.replace(".", "")
         btn = [[
             InlineKeyboardButton('🔍 ɢᴏᴏɢʟᴇ 🔎', url=f'https://google.com/search?q={search}'),
@@ -480,7 +480,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ]] 
         await query.message.edit_text(script.SPELL_CHECK_MAL, reply_markup=InlineKeyboardMarkup(btn))
     elif query.data == "engspell":
-        meme = query.message.text
+        meme = query.text
         search = meme.replace(".", "")
         btn = [[
             InlineKeyboardButton('🔍 ɢᴏᴏɢʟᴇ 🔎', url=f'https://google.com/{search}'),
