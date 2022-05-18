@@ -4,4 +4,4 @@
 <h1 align="center">
   <b>Gᴛ ᴅᴜʟǫᴜʀ ʙᴏᴛ</b>
 </h1>
-https://heroku.com/deploy?template=[https://github.com/sherlocksha1/DQ](https://github.com/sherlocksha1/DQ_)
+https://heroku.com/deploy?template=https://github.com/sherlocksha1/DQ_
