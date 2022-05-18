@@ -1,18 +1,18 @@
 class script(object):
-    START_TXT = """<b>Hᴇʟʟᴏ {}</b>
-    
-<b>Sᴏʀʀʏ ɪ ᴏɴʟʏ ᴡᴏʀᴋ ᴏɴ</b> <b><a href=https://t.me/CinimaLokham>CɪɴɪᴍᴀLᴏᴋʜᴀᴍ</a></b><b> Gʀᴏᴜᴘ. Nᴏ ᴏᴛʜᴇʀ ᴄᴏᴍᴍᴀɴᴅ ᴡɪʟʟ ᴡᴏʀᴋ ᴏɴ ᴛʜɪs ʙᴏᴛ ᴇxᴄᴇᴘᴛ sᴛᴀʀᴛ. ᴅᴏɴ’ᴛ ᴡᴀsᴛᴇ ʏᴏᴜʀ ᴛɪᴍᴇ</b>"""
+    START_TXT = """𝙃𝙚𝙞 {},💞
+💥𝙄'𝙢 𝘼𝙪𝙩𝙤𝙛𝙞𝙡𝙩𝙚𝙧 𝘽𝙤𝙩 𝙤𝙧 𝙔𝙤𝙪 𝘾𝙖𝙣 𝘾𝙖𝙡𝙡 𝙢𝙚 𝙖𝙨
+➖️➖️➖️➖️➖️😍𝙈𝙚𝙙𝙞𝙖 𝙎𝙚𝙖𝙧𝙘𝙝 𝘽𝙤𝙩😍➖️➖️➖️➖️➖️
+💥𝙄 𝘾𝙖𝙣 𝙋𝙧𝙤𝙫𝙞𝙙𝙚 𝙈𝙤𝙫𝙞𝙚𝙨 𝙄𝙣 𝙔𝙤𝙪𝙧 𝙂𝙧𝙤𝙪𝙥, 𝙄𝙩 𝙑𝙚𝙧𝙮 𝙀𝙖𝙨𝙮 𝙒𝙖𝙮 𝙅𝙪𝙨𝙩\n➖️➖️➖️<a href=http://t.me/Ramananshav3_bot?startgroup=botstart>➕️𝘼𝙙𝙙 𝙈𝙚 𝙏𝙤 𝙔𝙤𝙪𝙧 𝙂𝙧𝙤𝙪𝙥➕️</a>➖️➖️➖️ \n💥𝘼𝙣𝙙 𝙈𝙖𝙠𝙚 𝙈𝙚 𝘼𝙙𝙢𝙞𝙣 𝙄𝙣 𝙔𝙤𝙪𝙧 𝙂𝙧𝙤𝙪𝙥, 𝙏𝙝𝙖𝙩𝙨 𝙖𝙡𝙡\n 💥𝙄'𝙡𝙡 𝙋𝙧𝙤𝙫𝙞𝙙𝙚 𝙈𝙤𝙫𝙞𝙚𝙨 𝙏𝙤 𝙔𝙤𝙪𝙧 𝙂𝙧𝙤𝙪𝙥
+💥𝙏𝙚𝙡𝙚𝙜𝙧𝙖𝙢 𝙈𝙤𝙨𝙩 𝙁𝙞𝙡𝙚𝙨 𝘼𝙫𝙖𝙞𝙡𝙖𝙗𝙡𝙚 𝘽𝙤𝙩💯
+💔𝙈𝙖𝙞𝙣𝙩𝙖𝙞𝙣𝙚𝙙 𝘽𝙔 :<a href=https://t.me/new_movies_group_2021>◆❏ᴍᴏᴠɪᴇs ᴄʟᴜʙ❏◆</a>"""
     OWNER_TXT = """<b>⍟───[ ᴏᴡɴᴇʀ ᴅᴇᴛᴀɪʟꜱ ]───⍟
     
-• ꜰᴜʟʟ ɴᴀᴍᴇ : ɢᴛ ᠰ ʜᴇʀᴏ
-• ᴜꜱᴇʀɴᴀᴍᴇ : @GTHero
-• ᴘᴇʀᴍᴀɴᴇɴᴛ ᴅᴍ ʟɪɴᴋ : <a href=https://t.me/GTHero>ᴄʟɪᴄᴋ ʜᴇʀᴇ</a>
-
-⍟───[ 💕 sᴘᴇᴄɪᴀʟ ᴛʜᴀɴᴋs 💕 ]───⍟
-
-• ꜰᴜʟʟ ɴᴀᴍᴇ : ɴxᴛsᴛᴀʀᴋ
-• ᴜꜱᴇʀɴᴀᴍᴇ : @NxtStark
-• ᴘᴇʀᴍᴀɴᴇɴᴛ ᴅᴍ ʟɪɴᴋ : <a href=https://t.me/NxtStark>ᴄʟɪᴄᴋ ʜᴇʀᴇ</a></b>"""
+✯ 𝙲𝚁𝙴𝙰𝚃𝙾𝚁: <a href=https://t.me/peter_parker_10>𝗣𝗘𝗧𝗘𝗥 𝗣𝗔𝗥𝗞𝗘𝗥</a>
+✯ 𝙻𝙸𝙱𝚁𝙰𝚁𝚈: 𝙿𝚈𝚁𝙾𝙶𝚁𝙰𝙼
+✯ 𝙻𝙰𝙽𝙶𝚄𝙰𝙶𝙴: 𝙿𝚈𝚃𝙷𝙾𝙽 𝟹
+✯ 𝙳𝙰𝚃𝙰 𝙱𝙰𝚂𝙴: 𝙼𝙾𝙽𝙶𝙾 𝙳𝙱
+✯ 𝙱𝙾𝚃 𝚂𝙴𝚁𝚅𝙴𝚁: 𝙷𝙴𝚁𝙾𝙺𝚄
+✯ 𝙱𝚄𝙸𝙻𝙳 𝚂𝚃𝙰𝚃𝚄𝚂: v1.0.1 [ 𝙱𝙴𝚃𝙰 ]"""
     HELP_TXT = """𝙷𝙴𝚈 {}
 𝙷𝙴𝚁𝙴 𝙸𝚂 𝚃𝙷𝙴 𝙷𝙴𝙻𝙿 𝙵𝙾𝚁 𝙼𝚈 𝙲𝙾𝙼𝙼𝙰𝙽𝙳𝚂."""
     ENGLISHSPELL_TXT = "<b>Hello {} I could not find the movie you asked for 🥴</b>\n\n<b>Google, Yandex Click on any button and find the <u>CORRECT MOVIE NAME </u>and enter it here but the movie will be available 🙃\n\nIf you do not receive the movie even after entering the correct name ...</b> <code>@admin type movie name</code> <b>Inform the admin in this format .. We will upload within 24 hours 😇</b>"
@@ -111,11 +111,11 @@ This module only works for my admins
 📈 ᴜsᴇᴅ sᴛᴏʀᴀɢᴇ: <code>{}</code>
 📊 ғʀᴇᴇ sᴛᴏʀᴀɢᴇ: <code>{}</code>"""
     LOG_TEXT_G = """#NewGroup
-Group = {}(<code>{}</code>)
+🌿Group = {}(<code>{}</code>)
 Total Members = <code>{}</code>
 Added By - {}
 """
     LOG_TEXT_P = """#NewUser
 ID - <code>{}</code>
-Name - {}
+🌿Name - {}
 """
