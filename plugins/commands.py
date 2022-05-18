@@ -23,7 +23,7 @@ async def start(client, message):
     if message.chat.type in ['group', 'supergroup']:
         buttons = [
             [
-                InlineKeyboardButton('🤖 Updates', url='https://t.me/CLMlinkz')
+                InlineKeyboardButton('🤖 Updates', url='https://t.me/movies_club_2020')
             ],
             [
                 InlineKeyboardButton('ℹ️ Help', url=f"https://t.me/{temp.U_NAME}?start=help"),
@@ -61,7 +61,7 @@ async def start(client, message):
         btn = [
             [
                 InlineKeyboardButton(
-                    "🤖 Join Updates Channel", url=invite_link.invite_link
+                    "𝗝𝗼𝗶𝗻 𝗖𝗵𝗮𝗻𝗻𝗲𝗹", url=invite_link.invite_link
                 )
             ]
         ]
@@ -75,7 +75,7 @@ async def start(client, message):
                 btn.append([InlineKeyboardButton(" 🔄 Try Again", url=f"https://t.me/{temp.U_NAME}/{message.command[1]}")])
         await client.send_message(
             chat_id=message.from_user.id,
-            text="**Please Join My Updates Channel to use this Bot!**",
+            text="**നിങ്ങൾക്ക് സിനിമ കിട്ടണമെങ്കിൽ താഴെക്കാണുന്ന 𝗝𝗼𝗶𝗻 𝗖𝗵𝗮𝗻𝗻𝗲𝗹 എന്നത് ക്ലിക്ക് ചെയ്ത് Join ചെയ്ത് തിരികെ വന്ന് 🔄 Try Again കൊടുത്ത ശേഷം സിനിമ കിട്ടുന്നതാണ്💯**",
             reply_markup=InlineKeyboardMarkup(btn),
             parse_mode="markdown"
             )
@@ -228,15 +228,10 @@ async def start(client, message):
             f_caption=f_caption
     if f_caption is None:
         f_caption = f"{files.file_name}"
-    buttons = [
-                    [
-                        InlineKeyboardButton('🚸 ᴅᴇʟᴇᴛᴇ', callback_data="close_pages"),
-                        InlineKeyboardButton('💞 sʜᴀʀᴇ', url="https://t.me/share/url?url=**😱%20സിനിമ%20ലോകം.²·⁰%20😱%0A%0Aഏത്%20അർധരാത്രി%20ചോദിച്ചാലും%20പടം%20കിട്ടും,%20ലോകത്തിലെ%20ഒട്ടുമിക്ക%20ഭാഷകളിലുമുള്ള%20സിനിമകളുടെ%20കളക്ഷൻ..%20❤️%0A%0A👇%20GROUP%20LINK%20👇%0A@CinimaLokham%0A@CinimaLokham%0A@CinimaLokham**")
-                    ],
-                    [
-                        InlineKeyboardButton(text=f'🌿 Fɪʟᴇ sɪᴢᴇ 【 {size} 】🌿', callback_data='gxneo')
-                    ]
-                    ]
+    buttons = [[
+            InlineKeyboardButton('🎭 𝐆𝐫𝐨𝐮𝐩', url='https://t.me/new_movies_group_2021'),
+            InlineKeyboardButton('𝐂𝐡𝐚𝐧𝐧𝐞𝐥 🎭', url='https://t.me/new_all_movies_club')
+        ]]
     await client.send_cached_media(
         chat_id=message.from_user.id,
         file_id=file_id,
