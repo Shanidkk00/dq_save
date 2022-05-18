@@ -38,11 +38,11 @@ async def save_group(bot, message):
             return
         buttons = [[
             InlineKeyboardButton('ℹ️ Help', url=f"https://t.me/{temp.U_NAME}?start=help"),
-            InlineKeyboardButton('📢 Updates', url='https://t.me/TeamEvamaria')
+            InlineKeyboardButton('📢 join', url='https://t.me/new_movies_group_2021')
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await message.reply_text(
-            text=f"<b>Thankyou For Adding Me In {message.chat.title} ❣️\n\nIf you have any questions & doubts about using me contact support.</b>",
+            text=f"<b>എന്നെ നിങ്ങളുടെ ഗ്രൂപ്പില്‍ ചേര്‍ത്തതിന് നന്ദി {message.chat.title} ❣️ (എന്നെ ഗ്രൂപ്പിൽ അഡ്മിൻ ആക്കാൻ മറക്കല്ലേ......‼️)\n\nJOIN OUR GROUP 🥳</b>",
             reply_markup=reply_markup)
     else:
         settings = await get_settings(message.chat.id)
@@ -53,7 +53,7 @@ async def save_group(bot, message):
                         await (temp.MELCOW['welcome']).delete()
                     except:
                         pass
-                temp.MELCOW['welcome'] = await message.reply(f"<b>Hey , {u.mention}, Welcome to {message.chat.title}</b>")
+                temp.MELCOW['welcome'] = await message.reply(f"<b>𝐇𝐞𝐲 , {u.mention}, 💝 𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐓𝐨 {message.chat.title}</b>")
 
 
 @Client.on_message(filters.command('leave') & filters.user(ADMINS))
