@@ -107,7 +107,7 @@ async def next_page(bot, query):
             [InlineKeyboardButton("☞𝙲𝙷𝙴𝙲𝙺 𝙿𝙼",url="https://t.me/Ramananshav3_bot?")]
         )
         btn.insert(0,
-            [InlineKeyboardButton(f"🎭 {search} 🎭",callback_data="pages")]
+            [InlineKeyboardButton(f"🎭 {search} 🎭",callback_data="neosub")]
         )             
     elif off_set is None:
         btn.append([InlineKeyboardButton("🗒️ᴘᴀɢᴇ", callback_data="pages"),
@@ -115,7 +115,7 @@ async def next_page(bot, query):
                     InlineKeyboardButton("ɴᴇxᴛ➡️", callback_data=f"next_{req}_{key}_{n_offset}")])
         btn.append([InlineKeyboardButton("☞𝙲𝙷𝙴𝙲𝙺 𝙿𝙼",url="https://t.me/Ramananshav3_bot?")])
         btn.insert(0,
-            [InlineKeyboardButton(f"🎭 {search} 🎭",callback_data="pages")]
+            [InlineKeyboardButton(f"🎭 {search} 🎭",callback_data="neosub")]
         )             
     else:
         btn.append(
@@ -129,7 +129,7 @@ async def next_page(bot, query):
             [InlineKeyboardButton("☞𝙲𝙷𝙴𝙲𝙺 𝙿𝙼",url="https://t.me/Ramananshav3_bot?")]
         )
         btn.insert(0,
-            [InlineKeyboardButton(f"🎭 {search} 🎭",callback_data="pages")]
+            [InlineKeyboardButton(f"🎭 {search} 🎭",callback_data="neosub")]
         )             
     try:
         await query.edit_message_reply_markup(
@@ -480,7 +480,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer("⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯\nꜱᴇʀɪᴇꜱ ʀᴇǫᴜᴇꜱᴛ ꜰᴏʀᴍᴀᴛ\n⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯\n\nɢᴏ ᴛᴏ ɢᴏᴏɢʟᴇ ➠ ᴛʏᴘᴇ ᴍᴏᴠɪᴇ ɴᴀᴍᴇ ➠ ᴄᴏᴘʏ ᴄᴏʀʀᴇᴄᴛ ɴᴀᴍᴇ ➠ ᴘᴀꜱᴛᴇ ᴛʜɪꜱ ɢʀᴏᴜᴘ\n\nᴇxᴀᴍᴘʟᴇ : ʟᴏᴋɪ S01 E01\n\n🚯 ᴅᴏɴᴛ ᴜꜱᴇ ➠ ':(!,./)", show_alert=True)   
 
     elif query.data == "neosub":
-        await query.answer("അഥവാ ഗ്രൂപ്പ്‌ കോപ്പിറൈറ് കിട്ടി പോയാൽ.. പുതിയ ഗ്രൂപ്പ്‌ തുടങ്ങുമ്പോൾ ഇപ്പോൾ ജോയിൻ ആകുന്ന ചാനൽ വഴി ആയിരിക്കും അറിയിക്കുന്നത് 🤥",show_alert=True)
+        await query.answer("{search}  {query.from_user.search}  {query.from_message.search}",show_alert=True)
                            
     elif query.data == "close_pages":
         await query.message.delete()
@@ -707,23 +707,23 @@ async def auto_filter(client, msg, spoll=False):
         BUTTONS[key] = search
         req = message.from_user.id if message.from_user else 0
         btn.append(
-            [InlineKeyboardButton("ᴘᴀɢᴇ", callback_data="pages"),InlineKeyboardButton(text=f"1 - {round(int(total_results)/10)}", callback_data="pages"), InlineKeyboardButton(text="ɴᴇxᴛ", callback_data=f"next_{req}_{key}_{offset}")]
+            [InlineKeyboardButton("🗒️ᴘᴀɢᴇ", callback_data="pages"),InlineKeyboardButton(text=f"1 - {round(int(total_results)/10)}🔖", callback_data="pages"), InlineKeyboardButton(text="ɴᴇxᴛ➡️", callback_data=f"next_{req}_{key}_{offset}")]
         )
         btn.append(
             [InlineKeyboardButton("☞𝙲𝙷𝙴𝙲𝙺 𝙿𝙼",url="https://t.me/Ramananshav3_bot?")]
         )
         btn.insert(0,
-            [InlineKeyboardButton(f"🎭 {search} 🎭",callback_data="pages")]
+            [InlineKeyboardButton(f"🎭 {search} 🎭",callback_data="neosub")]
         )             
     else:
         btn.append(
-            [InlineKeyboardButton(text="ᴍᴏʀᴇ ᴘᴀɢᴇ ɴᴏᴛ ᴀᴠᴀɪʟᴀʙʟᴇ", callback_data="pages")]
+            [InlineKeyboardButton(text="🚫ᴍᴏʀᴇ ᴘᴀɢᴇ ɴᴏᴛ ᴀᴠᴀɪʟᴀʙʟᴇ🚫", callback_data="pages")]
         )             
         btn.append(
             [InlineKeyboardButton("☞𝙲𝙷𝙴𝙲𝙺 𝙿𝙼",url="https://t.me/Ramananshav3_bot?")]
         )
         btn.insert(0,
-            [InlineKeyboardButton(f"🎭 {search} 🎭",callback_data="pages")]
+            [InlineKeyboardButton(f"🎭 {search} 🎭",callback_data="neosub")]
         )             
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
     TEMPLATE = settings['template']
